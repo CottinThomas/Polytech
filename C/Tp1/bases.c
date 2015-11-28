@@ -1,27 +1,18 @@
-#include <stdio.h> // pour affichage
+#include <stdio.h>
 #include <stdlib.h>
 
 /* -------------- */
-int somme_for(int n)
-/* -------------- */
-{
-    int i; // indice de la boucle
-    int s; // somme
-    
-    // init
+int somme_for(int n){
+    int i;
+    int s;
     s = 0;
-    
-    // calcul de la somme
     for(i=1; i<=n; i++) {
         s += i;
-    }
-    
+    }    
     return s;
 }
-/* ------------- */
-int somme_do(int n)
-/* ------------- */
-{
+
+int somme_do(int n){
     int i =1;
     int s = 0;
     do{
@@ -30,10 +21,8 @@ int somme_do(int n)
     }while(i<=n);
     return s;
 }
-/* ---------------- */
-int somme_while(int n)
-/* ---------------- */
-{
+
+int somme_while(int n){
     int i =1;
     int s = 0;
     while(i<=n){
@@ -42,16 +31,12 @@ int somme_while(int n)
     }
     return s;
 }
-/* --------------- */
-int somme_math(int n)
-/* --------------- */
-{
+
+int somme_math(int n){
     return (n*(n+1))/2;
 }
-/* ----------------- */
-void test_boucles(void)
-/* ----------------- */
-{
+
+void test_boucles(void){
     int n = 10;
     int s_for = 0;
     int s_do = 0;
@@ -73,23 +58,17 @@ void test_boucles(void)
 
     if(s_for==s_do && s_while==s_do && s_math==s_do) printf("calculs corrects\n\n");
     else printf("calculs incorrects\n\n");
-    
-    // ajouter test 
 }
-/* ------------- */
-int is_prime(int n)
-/* ------------- */
-{
+
+int is_prime(int n){
     int prime = 0;
     for(int i=2;i<n;i++){
         if(n%i==0) prime = 1;
     }
     return prime;
 }
-/* ------------------ */
-int is_prime_fast(int n)
-/* ------------------ */
-{
+
+int is_prime_fast(int n){
     int i=2;
     if(n%i==0)
         return 1;
@@ -101,10 +80,8 @@ int is_prime_fast(int n)
     }
     return 0;
 }
-/* --------------- */
-int next_prime(int n)
-/* --------------- */
-{
+
+int next_prime(int n){
     int next;
     if(n%2==0) next = n+1;
     else next = n+2;
@@ -115,10 +92,8 @@ int next_prime(int n)
     }
     return next;
 }
-/* -------------------- */
-void display_primes(int n)
-/* -------------------- */
-{
+
+void display_primes(int n){
     int nbligne = 0;
     if(n<2) printf("Erreur : n < 2");
     else {
@@ -133,12 +108,9 @@ void display_primes(int n)
 
     }
     printf("\n");
-    
 }
-/* --------------- */
-void test_prime(void)
-/* --------------- */
-{
+
+void test_prime(void){
     int n;
     scanf("%d",&n);
     while(n!=-1){
@@ -158,30 +130,24 @@ void test_prime(void)
     display_primes(102);
 
 }
-/* ------------- */
-int fact_rec(int n)
-/* ------------- */
-{
+
+int fact_rec(int n){
     if (n==0) return 0;
     if(n==1)
         return 1;
     else 
         return (fact_rec(n-1))*n;
 }
-/* --------- */
-int fact(int n)
-/* --------- */
-{
+
+int fact(int n){
     if(n==0) return 0;
     int fact = 1;
     for (int i=1; i<=n;i++)
         fact = fact*i;
     return fact;
 }
-/* --------------------- */
-void test_factorielle(void)
-/* --------------------- */
-{
+
+void test_factorielle(void){
     puts("version recursive");
     // test des cas particuliers
     printf("%d! = %d\n", 0, fact_rec(0));
@@ -197,18 +163,14 @@ void test_factorielle(void)
     
     // cas general
     printf("%d! = %d\n", 5, fact_rec(5));
-}   
-/* ---------------- */
-int cnp(int n, int p)
-/* ---------------- */
-{
+}
+
+int cnp(int n, int p){
     if(p==0 || n==p) return 1;
     return fact(n)/(fact(p)*fact(n-p));
 }
-/* -------------------- */
-int cnp_fast(int n, int p)
-/* -------------------- */
-{
+
+int cnp_fast(int n, int p){
     if(p==0 || n==p) return 1;
     int pdt = p+1;
     for (int i=p+2; i<=n;i++){
@@ -217,18 +179,14 @@ int cnp_fast(int n, int p)
     int cnp = pdt/fact(n-p);
     return cnp;
 }
-/* --------------------- */
-int cnp_smart(int n, int p)
-/* --------------------- */
-{
+
+int cnp_smart(int n, int p){
     if(p<n/2)
         return cnp(n,n-p);
     return cnp(n,p);
 }
-/* ------------- */
-void test_cnp(void)
-/* ------------- */
-{
+
+void test_cnp(void){
     int n, p;
     
     n = 3; p = 1; printf("cnp(%d, %d) = %d\n", n, p, cnp(n,p));
@@ -258,37 +216,29 @@ void test_cnp(void)
     n = 6; p = 5; printf("cnp(%d, %d) = %d\n", n, p, cnp_fast(n,p));
     n = 6; p = 6; printf("cnp(%d, %d) = %d\n", n, p, cnp_fast(n,p));
 }
-/* -------------------- */
-void display_pascal(int n)
-/* -------------------- */
-{
+
+void display_pascal(int n){
     for(int i=0;i<=n;i++){
         printf("%5d",cnp(n,i));
     }
     printf("\n\n");
 }
-/* ------------------------- */
-void display_pascal_fast(int n)
-/* ------------------------- */
-{
+
+void display_pascal_fast(int n){
     for(int i=0;i<=n;i++){
         printf("%5d",cnp_fast(n,i));
     }
     printf("\n\n");
 }
-/* -------------------------- */
-void display_pascal_smart(int n)
-/* -------------------------- */
-{
+
+void display_pascal_smart(int n){
     for(int i=0;i<=n;i++){
         printf("%5d",cnp_smart(n,i));
     }
     printf("\n\n");
 }
-/* ---------------- */
-void test_pascal(void)
-/* ---------------- */
-{
+
+void test_pascal(void){
     int i, n;
     n=13;
     
@@ -306,10 +256,8 @@ void test_pascal(void)
         display_pascal_smart(i);
     }  
 }
-/* ================================== */
-int main (int argc, const char * argv[])
-/* ================================== */
-{
+
+int main (int argc, const char * argv[]){
     puts("Hello, World!\n");
     
     test_boucles();
