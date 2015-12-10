@@ -377,15 +377,15 @@ int main_test_chaine(void)
     test_str_cat();
     // test_str_ndupchar();
     test_int_len();
-    // test_int2str();
-    // test_ic2str();
+    test_int2str();
+    test_ic2str();
     
-    // test_str_count();
-    // test_str_count2();
-    // test_palyndrome1();
-    // test_palyndrome2();
+    test_str_count();
+    test_str_count2();
+    test_palyndrome1();
+    test_palyndrome2();
     
-    // test_commentaire();
+    test_commentaire();
     // test_commentaire_itere();
     return 0;
 }

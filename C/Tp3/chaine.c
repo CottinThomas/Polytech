@@ -12,6 +12,8 @@ const char* u[10] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
 const char* d[10] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
 const char* c[10] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
 const char* m[5] = {"","M","MM","MMM","MMMM"};
+const int TRUE = 1;
+const int FALSE = 0;
 
 /* ------------------- */
 void str_error(char *msg)
@@ -196,49 +198,139 @@ char* str_ndupchar(char* dst, char c, int n)
 int int_len(int x)
 /* ------------ */
 {
-    char myNb[10];
-    return sprintf(myNb,"%d",x);; // a modifier
+    int taille = 0;
+    if(x == 0)
+        return 1;
+    while(x > 0){
+        taille = taille+1;
+        x = x/10;
+    }
+    return taille;
 }
 /* ------------ */
 char* i2str(int x)
 /* ------------ */
 {
-    char *result = malloc(int_len(x));
-    // USE atoi
-    return NULL; // a modifier
+    int taille = int_len(x);
+    char *result = malloc(taille+1);
+    result[taille]='\0';
+    int cpt = 1;
+    int mod = x%10;
+    while(x > 0){
+        char temp = mod + '0';
+        result[taille-cpt] = temp;
+        x = x/10;
+        cpt = cpt+1;
+        mod = x%10;
+    }
+    return result; // a modifier
 }
 /* --------------------- */
 char* ic2str(int x, char c)
 /* --------------------- */
 {
-    return NULL; // a modifier
+    char *chaine1 = i2str(x);
+    char chaine2[2];
+    chaine2[0] = c;
+    chaine2[1] = '\0';
+    return str_cat(chaine1,chaine2); // a modifier
 }
 /* ----------------------------------------- */
 char* str_count(char *str, char *c, int *count)
 /* ----------------------------------------- */
 {
-    return NULL; // a modifier
+    char *firstChar = malloc(str_len(str));
+    firstChar[0] = '\0';
+    count[0] = 0;
+    if(str==NULL){
+        str[0] = '\0';
+        c[0] = '\0';
+        return "\0";
+    }
+    c[0] = str[0];
+    c[1] = '\0';
+    while(str[0] != '\0'){
+        if(str[0] == c[0])
+            count[0] = count[0] + 1;
+        else if(firstChar[0] == '\0'){
+            firstChar = str;
+        }
+        str = str+sizeof(char);
+    }
+    return firstChar; // a modifier
 }
 /* ----------------------- */
 int is_palyndrome1(char *str)
 /* ----------------------- */
-{
-    return 0; // a modifier
+{    
+    if(str == NULL)
+        return TRUE;
+    int taille = str_len(str);
+    int cpt = 0;
+    while(cpt <= taille/2){
+        if(str[cpt] != str[taille-1-cpt])
+            return FALSE;
+        cpt = cpt+1;
+    }
+    return TRUE; // a modifier
 }
 /* ----------------------- */
 int is_palyndrome2(char *str)
 /* ----------------------- */
 {
-    return 0; // a modifier
+    if(str == NULL)
+        return TRUE;
+    int taille = str_len(str);
+    int cptUp = 0;
+    int cptDown = taille-1;
+    while(cptUp < cptDown){
+        while(str[cptUp] == ' '){
+            cptUp = cptUp + 1;
+        }
+        while(str[cptDown] == ' '){
+            cptDown = cptDown - 1;
+        }
+        if(str[cptUp] != str[cptDown])
+            return FALSE;
+        cptUp = cptUp + 1;
+        cptDown = cptDown - 1;
+    }
+    return TRUE;
 }
 /* ---------------------- */
 char* commentaire(char *str)
 /* ---------------------- */
 {
-    // Ne pas oublier de faire un free quand une zone memoire allouee dynamiquement n'est plus utilisee par un pointeur
-    // buffer statique interdit
     
-    return NULL; // a modifier
+    int cpt = 1;
+    char *toDisplayImpair;
+    char *toDisplayPair;
+    char *reste = malloc(str_len(str)+1);
+    reste = str_dup(str);
+    while(reste[0] != '\0'){
+
+        char lettre;
+        int occurrence;
+        reste = str_count(reste,&lettre,&occurrence);
+        if(cpt%2==0){
+            toDisplayPair = str_cat(toDisplayImpair,ic2str(occurrence,lettre));
+            free(toDisplayImpair);
+            toDisplayImpair = NULL;
+        }else {
+            toDisplayImpair = str_cat(toDisplayPair,ic2str(occurrence,lettre));
+            free(toDisplayPair);
+            toDisplayPair = NULL;
+        }
+        cpt = cpt+1;
+    }
+    if(cpt%2==0){
+        toDisplayImpair[2*cpt] = '\0';
+        return toDisplayImpair;
+    }
+    toDisplayPair[2*cpt] = '\0';
+    return toDisplayPair;
+
+    return NULL;
 }
 /* -------------------------------------- */
 char* commentaire_itere(char *str, int iter)

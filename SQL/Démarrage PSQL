@@ -1,0 +1,16 @@
+Démarrage PSQL
+	psql -h tp-sgbd -U tcottin_a tcottin_a
+
+	Commandes utiles
+		help  	-> liste des opions d'aide
+		\h 		-> Commandes SQL
+		\h command 		-> Détail de la commande
+		\? 		-> Commandes PSQL
+		\dt 	-> liste des tables
+		\q		-> sortir
+
+		CREATE SCHEMA nom; 		-> Créer un nouveau schéma
+		SET SCHEMA 'nom'; 		-> Définir le schéma comme actif
+
+
+		\i nom_fichier.sql		-> Execuer fichier SQL
