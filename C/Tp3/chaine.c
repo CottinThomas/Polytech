@@ -249,7 +249,7 @@ char* str_count(char *str, char *c, int *count)
     }
     c[0] = str[0];
     c[1] = '\0';
-    while(str[0] != '\0'){
+    while(str[0] != '\0' && firstChar[0] == '\0'){
         if(str[0] == c[0])
             count[0] = count[0] + 1;
         else if(firstChar[0] == '\0'){
@@ -303,6 +303,7 @@ char* commentaire(char *str)
 {
     
     int cpt = 1;
+    char *temp;
     char *toDisplayImpair;
     char *toDisplayPair;
     char *reste = malloc(str_len(str)+1);
@@ -312,13 +313,19 @@ char* commentaire(char *str)
         char lettre;
         int occurrence;
         reste = str_count(reste,&lettre,&occurrence);
+        printf(i2str(occurrence));
         if(cpt%2==0){
-            toDisplayPair = str_cat(toDisplayImpair,ic2str(occurrence,lettre));
-            free(toDisplayImpair);
+            temp = ic2str(occurrence,lettre);
+            printf("%s\n", temp);
+            toDisplayPair = str_cat(toDisplayImpair,temp);
+            printf("%s\n", toDisplayPair);
+//            free(toDisplayImpair);
             toDisplayImpair = NULL;
         }else {
-            toDisplayImpair = str_cat(toDisplayPair,ic2str(occurrence,lettre));
-            free(toDisplayPair);
+            temp = ic2str(occurrence,lettre);
+            printf("%s\n", temp);
+            toDisplayImpair = str_cat(toDisplayPair,temp);
+ //           free(toDisplayPair);
             toDisplayPair = NULL;
         }
         cpt = cpt+1;
@@ -329,8 +336,6 @@ char* commentaire(char *str)
     }
     toDisplayPair[2*cpt] = '\0';
     return toDisplayPair;
-
-    return NULL;
 }
 /* -------------------------------------- */
 char* commentaire_itere(char *str, int iter)
