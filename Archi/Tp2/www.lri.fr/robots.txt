@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: /~teytaud/*.pdf
+#Disallow: /~teytaud/indema.html
+#Disallow: /~teytaud/games.html
+#Disallow: /~teytaud/iomca.html
+#Disallow: /~teytaud/citines.html
+#Disallow: /~teytaud/taouctsig.html
+
