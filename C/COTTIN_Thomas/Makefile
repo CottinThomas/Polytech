@@ -2,8 +2,8 @@
 # -- Makefile -- #
 # -------------- #
 
-OBJ = etudiant.o classe.o
-HEADER = etudiant.h classe.h
+OBJ = etudiant.o classe.o main.o
+HEADER = etudiant.h classe.h main.h
 
 COTTIN_Thomas.exe: $(OBJ) $(HEADER)
 	clang -o COTTIN_Thomas.exe $(OBJ)
@@ -13,6 +13,9 @@ etudiant.o: etudiant.c $(HEADER)
 
 classe.o: classe.c $(HEADER)
 	clang -c classe.c
+
+main.o: main.c $(HEADER)
+	clang -c main.c
 
 clean:
 	rm -f $(OBJ)

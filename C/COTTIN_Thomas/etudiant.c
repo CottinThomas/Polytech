@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "etudiant.h"
 
@@ -46,16 +46,16 @@ void setNote(TEtudiant* etudiant, float note, int typeNote){
 		return;
 	}
 	switch(typeNote){
-		case NOTE_PARTIEL:
+		case 0:
 			etudiant->notePartiel = note;
 			break;
-		case NOTE_CC:
+		case 1:
 			etudiant->noteCC = note;
 			break;
-		case NOTE_EXAM1:
+		case 2:
 			etudiant->noteExam1 = note;
 			break;
-		case NOTE_EXAM2:
+		case 3:
 			etudiant->noteExam2 = note;
 			break;
 	}
@@ -70,13 +70,13 @@ float getNote(TEtudiant* etudiant, int typeNote){
 		return -1.0;
 	}
 	switch(typeNote){
-		case NOTE_PARTIEL:
+		case 0:
 			return etudiant->notePartiel;
-		case NOTE_CC:
+		case 1:
 			return etudiant->noteCC;
-		case NOTE_EXAM1:
+		case 2:
 			return etudiant->noteExam1;
-		case NOTE_EXAM2:
+		case 3:
 			return etudiant->noteExam2;
 		default:
 			printf("Aucun type de note associé à l'identifiant passé en paramètre : %d.", typeNote);
@@ -148,41 +148,4 @@ int estRecu(TEtudiant* etudiant){
 	return 0;
 }
 
-int main (int argc, const char * argv[])
-/* ---------------------------------- */
-{
-	TEtudiant* leo = creerEtudiant("DONNY", "Leo");
 
-	printf("L'étudiant %s %s a été créé.\n", leo->prenom, leo->nom);
-
-	setNote(leo, 18.2, NOTE_PARTIEL);
-	printf("Note au partiel: %2.1f\n", getNote(leo, NOTE_PARTIEL));
-
-	setNote(leo, 11.4, NOTE_CC);
-	printf("Note au CC: %2.1f\n", getNote(leo, NOTE_CC));
-
-	setNote(leo, 5.3, NOTE_EXAM1);
-	printf("Note au CC: %2.1f\n", getNote(leo, NOTE_EXAM1));
-
-	printf("L'étudiant %s %s à pour résultat à la première session %2.1f\n", leo->prenom, leo->nom, getNoteFinale(leo));
-
-	switch(estRecu(leo)){
-		case 0:
-			printf("L'étudiant %s %s n'est pas reçu.", leo->prenom, leo->nom);
-			break;
-		case 1:
-			printf("L'étudiant %s %s est recu à la première session.\n", leo->prenom, leo->nom);
-			break;
-		case 2:
-			printf("L'étudiant %s %s est recu à la deuxième session.\n", leo->prenom, leo->nom);
-			break;
-	}
-
-	supprimerEtudiant(leo);
-
-
-	printf("Note au partiel: %2.1f\n", getNote(leo, NOTE_PARTIEL));
-
-	printf("\n");
-	return 0;
-}

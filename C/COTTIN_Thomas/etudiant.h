@@ -1,27 +1,24 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#ifndef _ETUDIANT_H
+#define _ETUDIANT_H
 
 
-const int NOTE_PARTIEL = 0;
-const int NOTE_CC = 1;
-const int NOTE_EXAM1 = 2;
-const int NOTE_EXAM2 = 3;
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
 
 /**
  *	Structure représentant la classe Etudiant
  **/
-struct TEtudiant_s{
+typedef struct struct TEtudiant_s{
 	char* nom;
 	char* prenom;
 	float notePartiel;
 	float noteCC;
 	float noteExam1;
 	float noteExam2;
-};
-
-typedef struct TEtudiant_s TEtudiant;
-
+} TEtudiant;
 
 /**
  * Constructeur
@@ -64,3 +61,5 @@ float getNoteFinale(TEtudiant* etudiant);
  * Détermine si l'étudiant est reçu (0 = non recu, 1 recu à la session 1, 2 recu a la session 2)
  */
 int estRecu(TEtudiant* etudiant);
+
+#endif
