@@ -5,7 +5,9 @@
 #include "etudiant.h"
 
 /**
- * Constructeur
+ * Constructeur : 
+ *		char* nom : nom de l'étudiant
+ *		char* prenom : prenom de l'étudiant
  */
 TEtudiant* creerEtudiant(char* nom, char* prenom){
 	TEtudiant* etudiant = (TEtudiant*) malloc(sizeof(TEtudiant));
@@ -22,6 +24,7 @@ TEtudiant* creerEtudiant(char* nom, char* prenom){
 
 /**
  * Destructeur
+ *		TEtudiant* etudiant : etudiant à supprimer
  */
 void supprimerEtudiant(TEtudiant* etudiant ){
 	if( etudiant != NULL){
@@ -34,7 +37,10 @@ void supprimerEtudiant(TEtudiant* etudiant ){
 }
 
 /**
- * Donne la note passée en paramètre a l'étudiant passé en parametre
+ * Donne la note "note" a "etudiant" pour l'interro de "typeNote"
+ *		TEtudiant* etudiant : etudiant à modifier
+ *		float note : la note à attribuer
+ *		int typeNote : le type d'interro (voir constantes)
  */
 void setNote(TEtudiant* etudiant, float note, int typeNote){
 	if(etudiant == NULL){
@@ -62,7 +68,9 @@ void setNote(TEtudiant* etudiant, float note, int typeNote){
 }
 
 /**
- * Accès a une note passée en paramètre
+ * Retourne la note "typeNote" de "etudiant"
+ *		TEtudiant* etudiant : etudiant interrogé
+ *		int typeNote : le type d'interro (voir constantes)	
  */
 float getNote(TEtudiant* etudiant, int typeNote){
 	if(etudiant == NULL){
@@ -85,7 +93,8 @@ float getNote(TEtudiant* etudiant, int typeNote){
 }
 
 /**
- * Retourne la note de l'étudiant à la première session
+ * Retourne la note de "etudiant" à la première session
+ *		TEtudiant* etudiant : etudiant à modifier
  * ==> note = MAX (NoteExam1, (2*NoteExam1 + NoteCC + NotePartiel)/4)
  */
 float getNotePremiereSession(TEtudiant* etudiant){
@@ -104,7 +113,8 @@ float getNotePremiereSession(TEtudiant* etudiant){
 }
 
 /**
- * Retourne la note de l'étudiant à la première session
+ * Retourne la note de "etudiant" à la deuxieme session
+ *		TEtudiant* etudiant : etudiant à modifier
  * ==> note = MAX (NoteExam1, (2*NoteExam1 + NoteCC + NotePartiel)/4)
  */
 float getNoteDeuxiemeSession(TEtudiant* etudiant){
@@ -123,7 +133,8 @@ float getNoteDeuxiemeSession(TEtudiant* etudiant){
 }
 
 /**
- * Retourne la note finale de l'étudiant
+ * Retourne la note finale de "etudiant"
+ *		TEtudiant* etudiant : etudiant à modifier
  */
 float getNoteFinale(TEtudiant* etudiant){
 	int a = getNotePremiereSession(etudiant);
@@ -137,7 +148,9 @@ float getNoteFinale(TEtudiant* etudiant){
 }
 
 /**
- * Détermine si l'étudiant est reçu (0 = non recu, 1 recu à la session 1, 2 recu a la session 2)
+ * Détermine si etudiant est reçu 
+ *		TEtudiant* etudiant : etudiant à modifier
+ *	0 = non recu, 1 recu à la session 1, 2 recu a la session 2
  */
 int estRecu(TEtudiant* etudiant){
 	//int a = getNotePremiereSession(etudiant);

@@ -6,7 +6,9 @@
 
 
 /**
- * Constructeur
+ * Constructeur : 
+ *		char* nom : nom de la classe
+ *		int nbEtu : nombre d'étudiants
  */
 TClasse* creerClasse(char* nom, int nbEtu){
 	TClasse* classe = (TClasse*) malloc(sizeof(TClasse));
@@ -18,7 +20,8 @@ TClasse* creerClasse(char* nom, int nbEtu){
 }
 
 /**
- * Destructeur
+ * Destructeur : 
+ *		char* nom : nom de la classe-
  */
 void supprimerClasse(TClasse* classe){
 	if( classe != NULL){
