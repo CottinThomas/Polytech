@@ -6,17 +6,20 @@ OBJ = etudiant.o classe.o main.o
 HEADER = etudiant.h classe.h main.h
 
 COTTIN_Thomas.exe: $(OBJ) $(HEADER)
-	clang -o COTTIN_Thomas.exe $(OBJ)
+	gcc -o COTTIN_Thomas.exe $(OBJ)
 
 etudiant.o: etudiant.c $(HEADER)
-	clang -c etudiant.c
+	gcc -c etudiant.c
 
 classe.o: classe.c $(HEADER)
-	clang -c classe.c
+	gcc -c classe.c
 
 main.o: main.c $(HEADER)
-	clang -c main.c
+	gcc -c main.c
 
+#clean:
+#	rm -f $(OBJ)
+#	rm -f COTTIN_Thomas.exe
 clean:
-	rm -f $(OBJ)
-	rm -f COTTIN_Thomas.exe
+	del $(OBJ)
+	del COTTIN_Thomas.exe

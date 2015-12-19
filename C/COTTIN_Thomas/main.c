@@ -36,10 +36,31 @@ int main (int argc, const char * argv[]){
 			break;
 	}
 
-	supprimerEtudiant(leo);
+	supprimerEtudiant(&leo); // passage de l'adresse du pointeur pour mise a null
+
+	int note = getNote(leo, NOTE_PARTIEL);
+	if(note != -1.0)
+		printf("La note obtenue au partiel est de : %f\n", note);
 
 
-	printf("Note au partiel: %2.1f\n", getNote(leo, NOTE_PARTIEL));
+	TClasse* classe = creerClasse("Ma Classe", 5);
+	ajouterEtudiant(classe,"COTTIN","Thomas");
+	if(chercherEtudiant(classe,"COTTIN","Thomas") >= 0)
+		printf("L'étudiant COTTIN Thomas est dans la classe.\n");
+	else
+		printf("L'étudiant COTTIN Thomas n'est pas dans la classe.\n");
+
+	enleverEtudiant(classe, "COTTIN", "Thomas");
+	if(chercherEtudiant(classe,"COTTIN","Thomas") >= 0)
+		printf("L'étudiant COTTIN Thomas est dans la classe.\n");
+	else
+		printf("L'étudiant COTTIN Thomas n'est pas dans la classe.\n");
+
+	supprimerClasse(&classe);
+	if(chercherEtudiant(classe,"COTTIN","Thomas") != -2)
+		printf("La classe existe\n");
+
+	lireClasse(classe);
 
 	printf("\n");
 	return 0;

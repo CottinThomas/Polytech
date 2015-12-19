@@ -11,7 +11,7 @@
 /**
  *	Structure représentant la classe Etudiant
  **/
-typedef struct struct TEtudiant_s{
+typedef struct TEtudiant_s{
 	char* nom;
 	char* prenom;
 	float notePartiel;
@@ -31,7 +31,7 @@ TEtudiant* creerEtudiant(char* nom, char* prenom);
  * Destructeur
  *		TEtudiant* etudiant : etudiant à supprimer
  */
-void supprimerEtudiant(TEtudiant* etudiant );
+void supprimerEtudiant(TEtudiant** etudiant );
 
 /**
  * Donne la note "note" a "etudiant" pour l'interro de "typeNote"

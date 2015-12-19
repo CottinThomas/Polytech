@@ -26,13 +26,14 @@ TEtudiant* creerEtudiant(char* nom, char* prenom){
  * Destructeur
  *		TEtudiant* etudiant : etudiant à supprimer
  */
-void supprimerEtudiant(TEtudiant* etudiant ){
-	if( etudiant != NULL){
-		if(etudiant->prenom != NULL)
-			free(etudiant->prenom);
-		if(etudiant->nom != NULL)
-			free(etudiant->nom);
-		free(etudiant);
+void supprimerEtudiant(TEtudiant** etudiant ){
+	if( etudiant[0] != NULL){
+		if(etudiant[0]->prenom != NULL)
+			free(etudiant[0]->prenom);
+		if(etudiant[0]->nom != NULL)
+			free(etudiant[0]->nom);
+		free(etudiant[0]);
+		etudiant[0] = NULL;
 	}
 }
 
@@ -44,11 +45,11 @@ void supprimerEtudiant(TEtudiant* etudiant ){
  */
 void setNote(TEtudiant* etudiant, float note, int typeNote){
 	if(etudiant == NULL){
-		printf("L'étudiant spécifié n'est pas existant.");
+		printf("L'étudiant spécifié n'est pas existant.\n");
 		return;
 	}
 	if(note < 0.0 || note > 20.0){
-		printf("ERREUR - La note doit être comprise entre 0 et 20.");
+		printf("ERREUR - La note doit être comprise entre 0 et 20.\n");
 		return;
 	}
 	switch(typeNote){
@@ -74,7 +75,7 @@ void setNote(TEtudiant* etudiant, float note, int typeNote){
  */
 float getNote(TEtudiant* etudiant, int typeNote){
 	if(etudiant == NULL){
-		printf("L'étudiant spécifié n'est pas existant.");
+		printf("L'étudiant spécifié n'est pas existant.\n");
 		return -1.0;
 	}
 	switch(typeNote){
@@ -99,7 +100,7 @@ float getNote(TEtudiant* etudiant, int typeNote){
  */
 float getNotePremiereSession(TEtudiant* etudiant){
 	if(etudiant == NULL){
-		printf("L'étudiant spécifié n'est pas existant.");
+		printf("L'étudiant spécifié n'est pas existant.\n");
 		return -1;
 	}
 	if(etudiant->notePartiel == -1.0 || etudiant->noteCC == -1.0 || etudiant->noteExam1 == -1.0){ // vérification du fait que les notes existent
@@ -119,7 +120,7 @@ float getNotePremiereSession(TEtudiant* etudiant){
  */
 float getNoteDeuxiemeSession(TEtudiant* etudiant){
 	if(etudiant == NULL){
-		printf("L'étudiant spécifié n'est pas existant.");
+		printf("L'étudiant spécifié n'est pas existant.\n");
 		return -1;
 	}
 	if(etudiant->notePartiel == -1.0 || etudiant->noteCC == -1.0 || etudiant->noteExam1 == -1.0 || etudiant->noteExam2 == -1.0){ // vérification du fait que les notes existent
