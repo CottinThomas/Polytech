@@ -76,7 +76,7 @@ void setNote(TEtudiant* etudiant, float note, int typeNote){
 float getNote(TEtudiant* etudiant, int typeNote){
 	if(etudiant == NULL){
 		printf("L'étudiant spécifié n'est pas existant.\n");
-		return -1.0;
+		return -2.0;
 	}
 	switch(typeNote){
 		case 0:
@@ -88,7 +88,7 @@ float getNote(TEtudiant* etudiant, int typeNote){
 		case 3:
 			return etudiant->noteExam2;
 		default:
-			printf("Aucun type de note associé à l'identifiant passé en paramètre : %d.", typeNote);
+			printf("Aucun type de note associé à l'identifiant passé en paramètre : %d.\n", typeNote);
 			return -1.0;
 	}
 }
@@ -101,11 +101,11 @@ float getNote(TEtudiant* etudiant, int typeNote){
 float getNotePremiereSession(TEtudiant* etudiant){
 	if(etudiant == NULL){
 		printf("L'étudiant spécifié n'est pas existant.\n");
-		return -1;
+		return -2;
 	}
 	if(etudiant->notePartiel == -1.0 || etudiant->noteCC == -1.0 || etudiant->noteExam1 == -1.0){ // vérification du fait que les notes existent
-		printf("L'une des note n'a pas été définie");
-		return -2;
+		printf("L'une des note n'a pas été définie\n");
+		return -1;
 	}
 	float note = (2*etudiant->noteExam1 + etudiant->noteCC + etudiant->notePartiel)/4;
 	if(note > etudiant->noteExam1)
@@ -121,16 +121,16 @@ float getNotePremiereSession(TEtudiant* etudiant){
 float getNoteDeuxiemeSession(TEtudiant* etudiant){
 	if(etudiant == NULL){
 		printf("L'étudiant spécifié n'est pas existant.\n");
-		return -1;
+		return -2;
 	}
 	if(etudiant->notePartiel == -1.0 || etudiant->noteCC == -1.0 || etudiant->noteExam1 == -1.0 || etudiant->noteExam2 == -1.0){ // vérification du fait que les notes existent
-		printf("L'une des note n'a pas été définie");
-		return -2;
+		printf("L'une des note n'a pas été définie\n");
+		return -1;
 	}
 	float note = (2*etudiant->noteExam2 + etudiant->noteExam1 + etudiant->noteCC + etudiant->notePartiel)/5;
 	if(note > etudiant->noteExam2)
 		return note;
-	return etudiant->noteExam1;
+	return etudiant->noteExam2;
 }
 
 /**
@@ -154,12 +154,25 @@ float getNoteFinale(TEtudiant* etudiant){
  *	0 = non recu, 1 recu à la session 1, 2 recu a la session 2
  */
 int estRecu(TEtudiant* etudiant){
-	//int a = getNotePremiereSession(etudiant);
 	if (getNotePremiereSession(etudiant) >= 10)
 		return 1;
 	if (getNoteDeuxiemeSession(etudiant) >= 10)
 		return 2;
 	return 0;
+}
+
+/**
+ * Fonction permettant un affichage formaté des étudiants. Utile pour les tests.
+ *		TEtudiant* etudiant : l'étudiant à afficher
+ */
+void afficherEtudiant(TEtudiant* etudiant){
+	if(etudiant != NULL){
+		printf("%s, %s\n",etudiant->nom, etudiant->prenom);
+		printf("\tNote partiel : %2.1f/20\n", etudiant->notePartiel);
+		printf("\tNote contrôle continu : %2.1f/20\n", etudiant->noteCC);
+		printf("\tNote premier examen : %2.1f/20\n", etudiant->noteExam1);
+		printf("\tNote second examen : %2.1f/20\n\n", etudiant->noteExam2);
+	}
 }
 
 

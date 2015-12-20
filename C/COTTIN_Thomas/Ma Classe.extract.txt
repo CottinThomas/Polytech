@@ -1,0 +1,32 @@
+Nom de la classe : Ma Classe
+Nombre d'élèves maximum : 5 / Nombre d'élèves actuels : 4
+Liste des élèves :
+
+	Nom : NOM4		Prénom : Prenom4
+		Note partiel : 3.0
+		Note contrôle continu : 12.0
+		Note au premier examen : 2.0
+		Note au second examen : 20.0
+		Note à la première session : 4.8
+		Note à la seconde session : 20.0
+		[RECU A LA SECONDE SESSION - Note finale : 20.0]
+
+	Nom : NOM1		Prénom : Prenom1
+		Note partiel : 10.0
+		Note contrôle continu : 15.0
+		Note au premier examen : 16.0
+		Note au second examen : 7.0
+		Note à la première session : 16.0
+		[RECU A LA PREMIERE SESSION - Note finale : 16.0]
+
+	Nom : NOM2		Prénom : Prenom2
+		Note partiel : 8.0
+		Note contrôle continu : 7.0
+		Note au premier examen : 15.0
+		Note au second examen : 0.0
+		Note à la première session : 15.0
+		[RECU A LA PREMIERE SESSION - Note finale : 15.0]
+
+	Nom : NOM3		Prénom : Prenom3
+		Note partiel : 1.0
+		Note contrôle continu : 7.0

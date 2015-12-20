@@ -1,0 +1,4 @@
+NOM1,Prenom1,10,15,16,7
+NOM2,Prenom2,8,7,15,
+NOM3,Prenom3,1,7
+NOM4,Prenom4,3,12,2,20

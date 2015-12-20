@@ -60,4 +60,22 @@ int enleverEtudiant(TClasse* classe, char* nom, char* prenom);
  */
 int lireClasse(TClasse* classe);
 
+/**
+ * Ecrit la liste des étudiants présents dans le fichier "nom_classe.txt".
+ * 		TClasse classe : la classe.
+ */
+int ecrireClasse(TClasse* classe);
+
+/**
+ * Classe les étudiants par ordre de mérite
+ * 		TClasse classe : la classe.
+ */
+ int classer(TClasse* classe);
+
+ /**
+ * Fonction permettant un affichage formaté des classes. Utile pour les tests.
+ *		TClasse* classe : la classe à afficher
+ */
+void afficherClasse(TClasse* classe);
+
 #endif

@@ -75,4 +75,10 @@ float getNoteFinale(TEtudiant* etudiant);
  */
 int estRecu(TEtudiant* etudiant);
 
+/**
+ * Fonction permettant un affichage formaté des étudiants. Utile pour les tests.
+ *		TEtudiant* etudiant : l'étudiant à afficher
+ */
+void afficherEtudiant(TEtudiant* etudiant);
+
 #endif
