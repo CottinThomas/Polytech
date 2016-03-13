@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+	<title>Menu déroulant vertical</title>
+	<link href="menuVertical.css" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; 
+											 charset=iso-8859-1" />
+  </head>
+  <body>	
+	<dl id="menu">
+	  <dt onclick="displayMenu(1)"><a href="#">Menu 1</a></dt>
+	  <dt onclick="displayMenu(2)">Menu 2</dt>
+	  <dd id="smenu2">
+		<ul>
+		  <li><a href="#">Sous-Menu 2.1</a></li>
+		  <li><a href="#">Sous-Menu 2.2</a></li>
+		  <li><a href="#">Sous-Menu 2.3</a></li>
+		</ul>
+	  </dd>
+	  <dt onclick="displayMenu(3)">Menu 3</dt>
+	  <dt onclick="displayMenu(4)">Menu 4</dt>
+	  <dd id="smenu4">
+		<ul>
+		  <li><a href="#">Sous-Menu 4.1</a></li>
+		  <li><a href="#">Sous-Menu 4.1</a></li>
+		</ul>
+	  </dd>
+	</dl>
+	<script type="text/javascript" src="menu.js"></script>
+  </body>
+</html>

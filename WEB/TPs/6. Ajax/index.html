@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+	<title>Menu déroulant vertical</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8"/>
+  </head>
+  <body>
+  	<div id="form">
+  		<form>
+			<fieldset id="fieldTitle">
+				<legend>Titre</legend>
+				<label for="title">Mots du titre :</label>
+				<input name="title" id="title" type="text"/>
+			</fieldset>
+
+			<fieldset id="fieldCompl">
+				<legend>Compléments</legend>
+				<label for="country">Pays :</label>
+				<select name="country" id="country">
+				</select>
+				<p>Année entre <input id="startYear" name="startYear" type="text"/> et <input id="endYear" name="endYear" type="text"/></p>
+			</fieldset>
+
+			<fieldset id="fieldActor">
+				<legend>Acteurs</legend>
+				<select multiple name="actors" id="actors">
+				</select>
+				<p>Sélectionner plusieurs acteurs en maintenant la touche CTRL enfoncée...
+			</fieldset>
+			<input value="Réinitialiser" type="reset"/>
+		</form>
+  	</div>
+  	<div id="infopane">
+  	</div>
+  </body>
+ </html>

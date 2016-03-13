@@ -1,0 +1,50 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: white;
+	font: 80% verdana, arial, sans-serif;
+}
+dl, dt, dd {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-transform: uppercase;
+}
+
+ul,li  {
+	margin: 10;
+	padding: 0;
+	list-style-type: none;
+	text-transform: uppercase;
+}
+
+dl#menu {
+	width: 15em;
+}
+dl#menu dt {
+	cursor: pointer;
+	margin: 2px 0;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid gray;
+	background: #CCC;
+}
+dl#menu dd {
+	border: 1px solid gray;
+}
+dl#menu li {
+	text-align: center;
+	background: #0F0;
+}
+dl#menu li a, dl#menu dt a {
+	color: #F00;
+	text-decoration: none;
+	border: 0 none;
+	height: 100%;
+}
+
+dl#menu li a:hover, dl#menu dt a:hover {
+	background: #eee;
+}

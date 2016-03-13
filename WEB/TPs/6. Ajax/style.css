@@ -1,0 +1,34 @@
+legend{
+	font-weight: bold;
+}
+
+/* GENERAL */
+#form{
+	float:left;
+	width:50%;
+	margin-right:15px;
+}
+
+#form input[type="reset"]{
+	margin-top: 10px;
+}
+
+/* TITLE */
+	input[id="title"]{
+		width:100%;
+	}
+
+	#form label[for="title"]{
+		display:block;
+	}
+
+/* COMPLEMENTS */
+	fieldset[id="fieldCompl"] input[type="text"]{
+		width:30px;
+	}
+
+#infopane{
+	float:right;
+	border:1px solid red;
+	background: grey;
+}
