@@ -29,7 +29,7 @@ int main (int argc, char** argv){
 		execvp("who",params_who);
 	}
 	else{
-		waitpid(pid_fork_who, NULL, 0);
+		//waitpid(pid_fork_who, NULL, 0);
 		pid_fork_ps = fork();
 		if(pid_fork_ps == -1){
 			printf("Fork PS failed\n");
@@ -38,7 +38,7 @@ int main (int argc, char** argv){
 			execvp("ps", params_ps);
 		}
 		else{
-			waitpid(pid_fork_ps, NULL, 0);
+			//waitpid(pid_fork_ps, NULL, 0);
 			pid_fork_ls = fork();
 			if(pid_fork_ls == -1){
 				printf("Fork LS failed\n");
@@ -47,8 +47,8 @@ int main (int argc, char** argv){
 				execvp("ls", params_ls);
 			}
 			else{
-				waitpid(pid_fork_ls, NULL, 0);
-				printf("Fini.\n");
+				//waitpid(pid_fork_ls, NULL, 0);
+				printf("\n");
 			}
 		}
 	}
