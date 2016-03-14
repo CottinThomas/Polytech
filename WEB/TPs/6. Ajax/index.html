@@ -11,27 +11,29 @@
 			<fieldset id="fieldTitle">
 				<legend>Titre</legend>
 				<label for="title">Mots du titre :</label>
-				<input name="title" id="title" type="text"/>
+				<input name="title" id="title" type="text" onchange="getData()"/>
 			</fieldset>
 
 			<fieldset id="fieldCompl">
 				<legend>Compléments</legend>
 				<label for="country">Pays :</label>
-				<select name="country" id="country">
+				<select name="country" id="country"  onclick="getData()">
 				</select>
-				<p>Année entre <input id="startYear" name="startYear" type="text"/> et <input id="endYear" name="endYear" type="text"/></p>
+				<p>Année entre <input id="startYear" name="startYear" type="text"  onchange="getData()"/> et <input id="endYear" name="endYear" type="text"  onchange="getData()"/></p>
 			</fieldset>
 
 			<fieldset id="fieldActor">
 				<legend>Acteurs</legend>
-				<select multiple name="actors" id="actors">
+				<select multiple name="actors" id="actors" onclick="getData()">
 				</select>
-				<p>Sélectionner plusieurs acteurs en maintenant la touche CTRL enfoncée...
+				<p>Sélectionner plusieurs acteurs en maintenant la touche CTRL enfoncée...</p>
 			</fieldset>
 			<input value="Réinitialiser" type="reset"/>
 		</form>
   	</div>
   	<div id="infopane">
   	</div>
+
+  	<script type="text/javascript" src="films.js"></script>
   </body>
  </html>

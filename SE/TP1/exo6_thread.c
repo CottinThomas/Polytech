@@ -9,7 +9,7 @@ void *killproc(pid_t pid){
 }
 
 int main (int argc, char *argv[]){
-	printf("Je suis le père, pid %d", gepid());
+	printf("Je suis le père, pid %d", gepid()); 
 	pthread_t fils1, fils2;
 	pthread_create(&fils1,NULL,killproc,getpid());
 	pthread_create(&fils2,NULL,killproc,fils1);
