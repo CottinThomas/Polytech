@@ -4,14 +4,12 @@
 #include <unistd.h>
 #include <string.h>
 
-
-
 int main (int argc, char** argv){
 
 	int i = 1;
-
 	while(1){
 		printf("%d\n", i);
 		i++;
 	}
+	exit(0);
 }
