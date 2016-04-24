@@ -1,0 +1,26 @@
+.menu_title{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.openedItem{
+	background-color: grey;
+	border: solid 1px black;
+}
+
+.icone{
+	vertical-align: middle;
+	padding-right:15px;
+}
+
+.plus{
+	background-image: url("images/plus.png");
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.moins{
+	background-image: url("images/moins.png");
+	background-repeat: no-repeat;
+    background-position: center; 
+}
