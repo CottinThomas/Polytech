@@ -2,6 +2,11 @@ package exercice2;
 
 public class FilePleineException extends Exception {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1234L;
+
 	public FilePleineException(String[] file, String elem) {
 		super();
 	}
