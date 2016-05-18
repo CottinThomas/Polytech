@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/thomas/Polytech/Archi/TP/TP_SIMD_code/tests/intro.cpp
+iostream
+-
+vector
+-
+string
+-
+algorithm
+-
+limits
+-
+simd.hpp
+/home/thomas/Polytech/Archi/TP/TP_SIMD_code/tests/simd.hpp
+
+/home/thomas/Polytech/Archi/TP/TP_SIMD_code/tests/simd.hpp
+iostream
+-
+vector
+-
+array
+-
+x86intrin.h
+-
+

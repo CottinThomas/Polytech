@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall -Wextra -Wconversion -Wsign-conversion -Wlogical-op -Wdouble-promotion -std=c++14 -pedantic -fopenmp -O3 -DNDEBUG -O3 -DNDEBUG -march=native -ffast-math   CMakeFiles/test__fractal_mandelbrot_v0.dir/tests/fractal_mandelbrot_v0.cpp.o  -o test__fractal_mandelbrot_v0 -rdynamic 
