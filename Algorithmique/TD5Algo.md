@@ -185,22 +185,22 @@ Processus
 
 ### 1
 						4	
-		2						5
-	1		3				5		6
-				4
+		2/						\5
+	1/		\3				5/		\6
+				\4
 
 
 						4
-			2					5
-		1		3			5		6
-					4		
+			2/					\5
+		1/		\3			5/		\6
+					\4		
 
 
 ### 2
 L'obtention de la liste triée se fait par parcours *infixe*
 
 ### 3
-La suite {1,2,3,4,5,6,7} ou {7,6,5,4,3,2,1} ou {1,1,1,1,1,1,1} donne un ABR 7
+La suite {1,2,3,4,5,6,7} ou {7,6,5,4,3,2,1} ou {1,1,1,1,1,1,1} ou {7,1,6,2,5,3,4} donne un ABR 7
 
 ### 4
 La suite {4,2,6,1,3,5,7} donne un ABR 3
