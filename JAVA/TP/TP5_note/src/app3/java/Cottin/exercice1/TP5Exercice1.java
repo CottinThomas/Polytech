@@ -54,6 +54,7 @@ public class TP5Exercice1 {
 		System.out.println("Veuillez entrer un nom de fichier :");
 		Scanner s = new Scanner(System.in);
 		String path = s.nextLine();
+		s.close();
 		try{
 			File f = new File(path);
 			if(!f.canRead()){

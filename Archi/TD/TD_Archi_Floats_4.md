@@ -7,7 +7,7 @@
 5									//1er cycle fmul
 6									//2nd cycle fmul
 7								//3rd cycle fmul
-8				sf F0, 756(R1)
+8				sf F0, 796(R1)
 9				bne R1, R3, loop
 
 

@@ -1,1 +1,0 @@
-/usr/bin/c++    -Wall -Wextra -Wconversion -Wsign-conversion -Wlogical-op -Wdouble-promotion -std=c++14 -pedantic -fopenmp -O3 -DNDEBUG -O3 -DNDEBUG -march=native -ffast-math   CMakeFiles/test__intro.dir/tests/intro.cpp.o  -o test__intro -rdynamic 
