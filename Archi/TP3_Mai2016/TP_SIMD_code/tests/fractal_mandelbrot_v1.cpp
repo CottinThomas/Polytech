@@ -46,7 +46,7 @@ auto fractal_mandelbrot(double const zoom, size_t const i_max, bool color = fals
 	/*
 	 * On place ici l'instruction OpenMP permettant de paralléliser le calcul. Le schedule le plus efficace est ici guided (voir CR) 
 	 */
-	#pragma omp parallel for schedule(runtime)
+	#pragma omp parallel for schedule(dynamic)
 	for (size_t x = 0; x < size_x; ++x)
 	{
 		for (size_t y = 0; y < size_y; ++y)
